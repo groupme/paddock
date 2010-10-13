@@ -25,12 +25,12 @@ You name it, we got it.
 ## Usage
 
     # Check if feature is enabled
-    if feature(:perimeter_fence)
+    if paddock(:perimeter_fence)
       # do work
     end
 
     # Guard a block
-    feature(:perimeter_fence) do
+    paddock(:perimeter_fence) do
       # do work
     end
 
