@@ -10,7 +10,7 @@ describe Paddock('development') do
 
   it "raises a FeatureNotFound error when the feature don't not exist none" do
     proc {
-      paddock(:raptor_fences)
+      enabled(:raptor_fences)
     }.should raise_error(Paddock::FeatureNotFound)
   end
 
@@ -24,12 +24,12 @@ describe Paddock('development') do
 
       it "runs the feature block always" do
         called = false
-        paddock(:perimeter_fence) { called = true }
+        enabled(:perimeter_fence) { called = true }
         called.should be_true
       end
 
       it "always returns true on feature check" do
-        paddock(:perimeter_fence).should be_true
+        enabled(:perimeter_fence).should be_true
       end
     end
 
@@ -47,12 +47,12 @@ describe Paddock('development') do
 
         it "runs the feature block" do
           called = false
-          paddock(:perimeter_fence) { called = true }
+          enabled(:perimeter_fence) { called = true }
           called.should be_true
         end
 
         it "returns true from the feature check" do
-          paddock(:perimeter_fence).should be_true
+          enabled?(:perimeter_fence).should be_true
         end
 
         it "is indifferent to strings/symbols" do
@@ -61,7 +61,7 @@ describe Paddock('development') do
           end
 
           called = false
-          paddock(:perimeter_fence) { called = true }
+          enabled(:perimeter_fence) { called = true }
           called.should be_true
         end
       end
@@ -81,12 +81,12 @@ describe Paddock('development') do
 
         it "runs the feature block" do
           called = false
-          paddock(:perimeter_fence) { called = true }
+          enabled(:perimeter_fence) { called = true }
           called.should be_true
         end
 
         it "returns true from the feature check" do
-          paddock(:perimeter_fence).should be_true
+          enabled?(:perimeter_fence).should be_true
         end
 
         it "is indifferent to strings/symbols" do
@@ -95,7 +95,7 @@ describe Paddock('development') do
           end
 
           called = false
-          paddock(:perimeter_fence) { called = true }
+          enabled(:perimeter_fence) { called = true }
           called.should be_true
         end
       end
@@ -107,12 +107,12 @@ describe Paddock('development') do
 
         it "does not run the feature block when not in an appropriate environment" do
           called = false
-          paddock(:perimeter_fence) { called = true }
+          enabled(:perimeter_fence) { called = true }
           called.should be_false
         end
 
         it "returns false from the feature check" do
-          paddock(:perimeter_fence).should be_false
+          enabled(:perimeter_fence).should be_false
         end
       end
     end
@@ -127,12 +127,12 @@ describe Paddock('development') do
 
     it "does not run the feature block when not in an appropriate environment" do
       called = false
-      paddock(:perimeter_fence) { called = true }
+      enabled(:perimeter_fence) { called = true }
       called.should be_false
     end
 
     it "returns false from the feature check" do
-      paddock(:perimeter_fence).should be_false
+      enabled(:perimeter_fence).should be_false
     end
   end
 
@@ -145,12 +145,12 @@ describe Paddock('development') do
 
     it "does not run the feature block when not in an appropriate environment" do
       called = false
-      paddock(:perimeter_fence) { called = true }
+      enabled(:perimeter_fence) { called = true }
       called.should be_false
     end
 
     it "returns false from the feature check" do
-      paddock(:perimeter_fence).should be_false
+      enabled(:perimeter_fence).should be_false
     end
 
     it "is indifferent to strings/symbols" do
@@ -159,7 +159,7 @@ describe Paddock('development') do
       end
 
       called = false
-      paddock(:perimeter_fence) { called = true }
+      enabled(:perimeter_fence) { called = true }
       called.should be_true
     end
   end
@@ -173,12 +173,12 @@ describe Paddock('development') do
 
     it "does not run the feature block when not in an appropriate environment" do
       called = false
-      paddock(:perimeter_fence) { called = true }
+      enabled(:perimeter_fence) { called = true }
       called.should be_true
     end
 
     it "returns false from the feature check" do
-      paddock(:perimeter_fence).should be_true
+      enabled(:perimeter_fence).should be_true
     end
 
     it "is indifferent to strings/symbols" do
@@ -187,7 +187,7 @@ describe Paddock('development') do
       end
 
       called = false
-      paddock(:perimeter_fence) { called = true }
+      enabled(:perimeter_fence) { called = true }
       called.should be_true
     end
   end
@@ -202,10 +202,10 @@ describe Paddock('development') do
 
     it "restores original feature behavior" do
       Paddock.disable :enabled_feature
-      paddock(:enabled_feature).should be_false
+      enabled(:enabled_feature).should be_false
 
       Paddock.reset!
-      paddock(:enabled_feature).should be_true
+      enabled(:enabled_feature).should be_true
     end
   end
 end

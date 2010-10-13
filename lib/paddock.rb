@@ -52,11 +52,12 @@ module Paddock
     Paddock::Feature.add(name, (options[:in] || :all), :disabled)
   end
 
-  def paddock(name)
+  def enabled(name)
     enabled = Paddock::Feature.get(name).enabled?
     enabled && yield if block_given?
     enabled
   end
+  alias_method :enabled?, :enabled
 end
 
 def Paddock(env, &block)
