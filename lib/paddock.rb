@@ -58,6 +58,8 @@ module Paddock
     enabled
   end
   alias_method :enabled?, :enabled
+  module_function :enabled
+  module_function :enabled?
 end
 
 def Paddock(env, &block)
