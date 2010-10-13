@@ -52,7 +52,7 @@ module Paddock
     Paddock::Feature.add(name, (options[:in] || :all), :disabled)
   end
 
-  def feature(name)
+  def paddock(name)
     enabled = Paddock::Feature.get(name).enabled?
     enabled && yield if block_given?
     enabled
