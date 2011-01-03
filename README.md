@@ -50,6 +50,4 @@ We're not computer nerds. We prefer to be called "hackers."
 * Pat Nakajima
 * Brandon Keene
 
-![system secured](http://ak2.static.dailymotion.com/static/video/024/680/8086420:jpeg_preview_large.jpg)
-
 (c) Copyright 2010 Pivotal Labs, see LICENSE
