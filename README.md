@@ -25,12 +25,7 @@ You name it, we got it.
 ## Usage
 
     # Check if feature is enabled
-    if paddock(:perimeter_fence)
-      # do work
-    end
-
-    # Guard a block
-    paddock(:perimeter_fence) do
+    if Paddock.enabled?(:perimeter_fence)
       # do work
     end
 
